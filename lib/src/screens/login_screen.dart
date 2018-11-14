@@ -38,6 +38,12 @@ Widget emailField() {
 }
 
 Widget passwordField() {
+  return TextFormField(
+    decoration: InputDecoration(
+      labelText: "Enter Password",
+      hintText: "Password",
+    ),
+  );
 
 }
 
