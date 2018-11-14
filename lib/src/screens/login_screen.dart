@@ -49,6 +49,7 @@ Widget passwordField() {
 
 Widget submitButton() {
   return RaisedButton(
+    color: Colors.blue,
     child:Text("submit"),
     onPressed: () {},
 
