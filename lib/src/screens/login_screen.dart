@@ -44,6 +44,9 @@ Widget emailField() {
       }
       return null;
     },
+    onSaved: (String value) {
+      print(value);
+    },
   );
 
 }
@@ -60,6 +63,9 @@ Widget passwordField() {
       }
       return null;
     },
+    onSaved: (String value) {
+      print(value);
+    },
   );
 
 }
@@ -69,8 +75,11 @@ Widget submitButton() {
     color: Colors.blue,
     child:Text("submit"),
     onPressed: () {
-      print(formKey.currentState.validate());
+      if(formKey.currentState.validate()){
+          formKey.currentState.save();
+      }
     },
+    
 
   );
 }
