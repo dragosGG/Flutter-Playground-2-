@@ -12,7 +12,9 @@ class LoginScreen extends StatefulWidget {
 class LoginScreenState extends State <LoginScreen> {
 
 final formKey = GlobalKey<FormState>();
-  
+
+String email = '';
+String password = '';  
   Widget build(context) {
     return Container(
       margin: EdgeInsets.all(20.0),
@@ -45,7 +47,7 @@ Widget emailField() {
       return null;
     },
     onSaved: (String value) {
-      print(value);
+      password = value ;
     },
   );
 
@@ -64,7 +66,7 @@ Widget passwordField() {
       return null;
     },
     onSaved: (String value) {
-      print(value);
+      email = value ;
     },
   );
 
@@ -73,11 +75,14 @@ Widget passwordField() {
 Widget submitButton() {
   return RaisedButton(
     color: Colors.blue,
-    child:Text("submit"),
+    child:Text("Submit"),
     onPressed: () {
       if(formKey.currentState.validate()){
           formKey.currentState.save();
+          print('Time to post $email and $password to my API ');
       }
+
+      // take both password and email and pass them to some API 
     },
     
 
