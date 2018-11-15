@@ -37,6 +37,13 @@ Widget emailField() {
       labelText: 'Email Address',
       hintText: 'you@example.com',
     ),
+    validator: (String value) {
+      // return null if valid - otherwise string with return message if invalid
+      if(!value.contains('@')) {
+        return  'Please enter a valid email';
+      }
+      return null;
+    },
   );
 
 }
@@ -47,6 +54,12 @@ Widget passwordField() {
       labelText: "Enter Password",
       hintText: "Password",
     ),
+    validator: (String value) {
+      if(value.length > 4) {
+        return  "Password must be at least 4 characters";
+      }
+      return null;
+    },
   );
 
 }
@@ -56,7 +69,7 @@ Widget submitButton() {
     color: Colors.blue,
     child:Text("submit"),
     onPressed: () {
-      formKey.currentState.reset();
+      print(formKey.currentState.validate());
     },
 
   );
